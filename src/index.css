@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+:root {
+  --color-ig-blue: #0095f6;
+  --color-ig-blue-hover: #1877f2;
+  --color-ig-gray: #8e8e8e;
+  --color-ig-light-gray: #fafafa;
+  --color-ig-border: #dbdbdb;
+  --color-ig-text: #262626;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--color-ig-text);
+    background-color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-ig-border);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-ig-gray);
+  }
+}
+
+@layer components {
+
+  /* Instagram-style buttons */
+  .btn-primary {
+    background-color: var(--color-ig-blue);
+    color: white;
+    padding: 0.375rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-ig-blue-hover);
+  }
+
+  .btn-primary:active {
+    opacity: 0.7;
+  }
+
+  .btn-secondary {
+    background-color: var(--color-ig-light-gray);
+    color: var(--color-ig-text);
+    padding: 0.375rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-ig-border);
+  }
+
+  .btn-secondary:active {
+    opacity: 0.7;
+  }
+
+  /* Instagram-style input */
+  .input-ig {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-ig-border);
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    background-color: var(--color-ig-light-gray);
+    transition: all 0.2s;
+  }
+
+  .input-ig:focus {
+    outline: none;
+    ring: 1px solid var(--color-ig-blue);
+    background-color: white;
+  }
+
+  /* Modal overlay */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  /* Prevent body scroll when modal is open */
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  /* Instagram-style card */
+  .card-ig {
+    background-color: white;
+    border: 1px solid var(--color-ig-border);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  /* Story highlight ring */
+  .story-ring {
+    padding: 0.125rem;
+    border-radius: 9999px;
+    background: linear-gradient(to top right, #facc15, #ec4899, #9333ea);
+  }
+
+  /* Story highlight ring (inactive) */
+  .story-ring-inactive {
+    padding: 0.125rem;
+    border-radius: 9999px;
+    background-color: var(--color-ig-border);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Grid item aspect ratio */
+  .grid-item {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .grid-item-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@layer utilities {
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Snap scroll */
+  .snap-y {
+    scroll-snap-type: y mandatory;
+  }
+
+  .snap-start {
+    scroll-snap-align: start;
+  }
+
+  .snap-center {
+    scroll-snap-align: center;
+  }
+
+  /* Text truncate with lines */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Additional custom styles */
+@keyframes heart-pop {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heart-animation {
+  animation: heart-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
