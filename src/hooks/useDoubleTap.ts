@@ -1,7 +1,7 @@
-import { useEffect, useRef, RefObject } from 'react';
+import { useEffect, useRef, type RefObject } from 'react';
 
 export const useDoubleTap = (
-    elementRef: RefObject<HTMLElement>,
+    elementRef: RefObject<HTMLElement | null>,
     onDoubleTap: (e: MouseEvent | TouchEvent) => void,
     delay: number = 300
 ) => {

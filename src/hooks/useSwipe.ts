@@ -1,4 +1,4 @@
-import { useEffect, useRef, RefObject } from 'react';
+import { useEffect, useRef, type RefObject } from 'react';
 
 interface SwipeCallbacks {
     onSwipeLeft?: () => void;
@@ -8,7 +8,7 @@ interface SwipeCallbacks {
 }
 
 export const useSwipe = (
-    elementRef: RefObject<HTMLElement>,
+    elementRef: RefObject<HTMLElement | null>,
     callbacks: SwipeCallbacks,
     threshold: number = 50
 ) => {

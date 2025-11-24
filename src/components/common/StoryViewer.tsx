@@ -26,7 +26,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = ({
     const [progress, setProgress] = useState(0);
     const duration = stories[currentIndex]?.duration || 5000;
     const containerRef = useRef<HTMLDivElement>(null);
-    const progressInterval = useRef<number>();
+    const progressInterval = useRef<number | undefined>(undefined);
 
     useEffect(() => {
         if (!isOpen) return;

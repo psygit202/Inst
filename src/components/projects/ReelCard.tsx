@@ -7,8 +7,8 @@ interface Project {
     description: string;
     image: string;
     tags: string[];
-    demo?: string;
-    github?: string;
+    demo: string | null;
+    github: string | null;
     metrics: string;
 }
 
